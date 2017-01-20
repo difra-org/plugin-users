@@ -2,7 +2,7 @@
     "name": "difra/users",
     "description": "Users plugin for Difra framework",
     "type": "library",
-    "require": {
+    "require-dev": {
         "difra/difra": "7.0.x-dev",
         "difra/capcha": "7.0.x-dev"
     },
