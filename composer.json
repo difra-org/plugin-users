@@ -1,0 +1,15 @@
+{
+    "name": "difra/users",
+    "description": "Users plugin for Difra framework",
+    "type": "library",
+    "require": {
+        "difra/difra": "7.0"
+    },
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Eduard Kutuev",
+            "email": "nap@napych.com"
+        }
+    ]
+}
