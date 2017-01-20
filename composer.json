@@ -3,7 +3,8 @@
     "description": "Users plugin for Difra framework",
     "type": "library",
     "require": {
-        "difra/difra": "7.0"
+        "difra/difra": "7.0",
+        "difra/capcha": "*"
     },
     "license": "BSD-2-Clause",
     "authors": [
