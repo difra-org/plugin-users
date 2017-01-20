@@ -1,0 +1,199 @@
+<locale>
+    <auth>
+        <forms>
+            <loginTitle>Вход на сайт:</loginTitle>
+            <rememberMe>Запомнить меня</rememberMe>
+            <recoverPassword>восстановить пароль</recoverPassword>
+            <enter>Войти</enter>
+            <recoverPasswordTitle>Восстановление пароля</recoverPasswordTitle>
+            <recoverPasswordFormTitle>Введите новый пароль:</recoverPasswordFormTitle>
+            <recover>Восстановить</recover>
+            <enterNewPassword>Введите новый пароль.</enterNewPassword>
+            <enterNewPassword2>Введите новый пароль ещё раз.</enterNewPassword2>
+            <save>Сохранить</save>
+            <registrationTitle>Регистрация:</registrationTitle>
+            <registration>Зарегистрироваться</registration>
+            <errors>
+                <emailRequired>Введите адрес вашей электронной почты.</emailRequired>
+                <passwordRequired>Введите пароль.</passwordRequired>
+                <captchaRequired>Введите текст с картинки.</captchaRequired>
+            </errors>
+        </forms>
+        <placeholders>
+            <email>Логин (электронная почта)</email>
+            <password>Пароль</password>
+            <againPassword>Пароль (ещё раз)</againPassword>
+            <nickname>Псевдоним</nickname>
+            <captcha>Код подтверждения</captcha>
+        </placeholders>
+        <fieldDescs>
+            <email>На этот адрес вам придёт письмо для подтверждения.</email>
+            <password>Придумайте пароль для входа на сайт.</password>
+            <password2>Повторите пароль для избежания ошибок.</password2>
+            <nickname>Имя или псевдоним, которым вы будете подписываться.</nickname>
+            <capcha>Код подтверждения с картинки.</capcha>
+        </fieldDescs>
+
+        <mail>
+            <recover>
+                <subject>Восстановление пароля</subject>
+                <text1>Здравствуйте.&lt;br/&gt;&lt;br/&gt;Чтобы задать новый пароль, пройдите по
+                    ссылке:&lt;br/&gt;</text1>
+                <text2>&lt;br/&gt;&lt;br/&gt;Ссылка будет действительна в течение&#160;</text2>
+                <text3>&#160;часов&lt;br/&gt;Если вы не запрашивали восстановление пароля, просто
+                    пропусите это письмо.&lt;br/&gt;</text3>
+            </recover>
+            <registration>
+                <subject>Добро пожаловать!</subject>
+                <welcome1>Спасибо за регистрацию на&#160;</welcome1>
+                <welcome2>.</welcome2>
+                <username>Ваше имя пользователя:&#160;</username>
+                <password>Ваш пароль:&#160;</password>
+                <moderate>Как только модератор утвердит вашу регистрацию, вы получите письмо о том, что
+                    можно войти в систему.
+                </moderate>
+                <email1>Для того, чтобы подтвердить, что этот адрес принадлежит вам, перейдите по
+                    ссылке:&#160;</email1>
+                <email2>.</email2>
+                <email3>Внимание! Если вы не регистрировались на нашем сайте, не нажимайте на эту
+                    ссылку!
+                </email3>
+                <legal1>Данное письмо отправлено автоматически. Если у вас возникли вопросы, пишите на&#160;</legal1>
+                <legal2>.</legal2>
+            </registration>
+        </mail>
+        <login>
+            <not_found>Пользователя с таким e-mail нет.</not_found>
+            <bad_password>Неправильный пароль.</bad_password>
+            <bad_login_or_password>Неправильный логин или пароль.</bad_login_or_password>
+            <inactive>Пользователь не активирован (проверьте почту).</inactive>
+            <banned>Пользователь заблокирован.</banned>
+            <recovered>Вам на почту высланы дальнейшие инструкции для восстановления пароля.</recovered>
+        </login>
+        <recover>
+            <already_logged>Перед тем, как использовать ссылку восстановления пароля, нужно выйти из
+                системы.
+            </already_logged>
+            <recover_invalid>Неправильная ссылка восстановления пароля. Проверьте, что ссылки в письме и
+                браузере совпадают. Если вы думаете, что это ошибка,
+                попробуйте воспользоваться восстановлением пароля ещё раз.
+            </recover_invalid>
+            <recover_used>Этой ссылкой уже воспользовались для смены пароля. Убедитесь, что вы открываете
+                письмо, полученное недавно. Если вы думаете, что это
+                ошибка, попробуйте воспользоваться восстановлением пароля ещё раз.
+            </recover_used>
+            <recover_outdated>Эта ссылка устарела. С момента её создания прошло слишком много времени и она
+                была отключена в целях безопасности. Если вы
+                запросили восстановление пароля недавно, возможно, вы открыли не то письмо. Если вы
+                думаете, что это ошибка, попробуйте воспользоваться
+                восстановлением пароля ещё раз.
+            </recover_outdated>
+            <pw_empty>Введите пароль.</pw_empty>
+            <pw_short>Пароль слишком короткий.</pw_short>
+            <pw_diff>Введённые пароли не совпадают.</pw_diff>
+            <done>Новый пароль установлен. Вы можете войти в систему.</done>
+        </recover>
+        <register>
+            <already_logged>Вы уже вошли в систему. Перед тем, как зарегистрироваться, нужно выйти из
+                системы.
+            </already_logged>
+            <email_empty>Введите адрес почты.</email_empty>
+            <email_invalid>Неправильный адрес почты.</email_invalid>
+            <email_dupe>Такой адрес уже зарегистрирован.</email_dupe>
+            <email_ok>Подходящий адрес.</email_ok>
+            <password1_empty>Введите пароль.</password1_empty>
+            <password1_short>Минимальная длина пароля — 6 символов.</password1_short>
+            <password1_ok>Хороший пароль.</password1_ok>
+            <password2_empty>Введите пароль ещё раз.</password2_empty>
+            <passwords_diff>Введённые пароли не совпадают.</passwords_diff>
+            <password2_ok>Пароли совпадают.</password2_ok>
+            <captcha_empty>Введите код с картинки.</captcha_empty>
+            <captcha_invalid>Неправильно введены символы с картинки.</captcha_invalid>
+            <captcha_ok>Правильный код.</captcha_ok>
+            <login_empty>Выберите имя пользователя.</login_empty>
+            <login_invalid>Недопустимое имя пользователя.</login_invalid>
+            <login_dupe>Такое имя пользователя уже занято.</login_dupe>
+            <login_ok>Подходящее имя пользователя.</login_ok>
+            <login_short>
+                <part1>Имя пользователя не должно быть короче </part1>
+                <part2> символ</part2>
+                <part3>.</part3>
+            </login_short>
+            <login_long>
+                <part1>Имя пользователя не должно быть длиннее </part1>
+                <part2> символ</part2>
+                <part3>.</part3>
+            </login_long>
+            <complete-email>Спасибо за регистрацию. Теперь вам на почту должно придти письмо со ссылкой на
+                активацию вашей учётной записи.
+            </complete-email>
+            <complete-moderate>Спасибо за регистрацию. Вы получите письмо, когда модератор активирует вашу
+                учётную запись.
+            </complete-moderate>
+            <complete-none>Спасибо за регистрацию. Теперь вы можете войти в систему.</complete-none>
+        </register>
+        <activate>
+            <done>Ваша учётная запись активирована.</done>
+            <activate_notfound>Неправильная ссылка для активации учётной записи.</activate_notfound>
+            <activate_used>Эта учётная запись уже активирована.</activate_used>
+        </activate>
+        <password>
+            <bad_old>Неправильно введён текущий пароль.</bad_old>
+            <old_ok>Текущий пароль введён верно.</old_ok>
+            <changed>Новый пароль сохранён.</changed>
+        </password>
+
+
+        <!-- старое — к постепенному удалению -->
+        <password>
+            <errors>
+                <pw_empty>Введите пароль.</pw_empty>
+                <pw_short>Пароль слишком короткий.</pw_short>
+                <pw_diff>Введённые пароли не совпадают.</pw_diff>
+            </errors>
+        </password>
+        <adm>
+            <h2-title>Пользователи</h2-title>
+            <total>Всего: </total>
+            <active>, активных: </active>
+            <h3-useredit-common>Редактирование пользователя</h3-useredit-common>
+            <h3-useredit-info>Дополнительная информация</h3-useredit-info>
+            <users-empty>Нет ни одного пользователя.</users-empty>
+            <user-not-found>Пользователь с таким ID не найден</user-not-found>
+            <id>ID</id>
+            <email>E-mail</email>
+            <registered>Зарегистирован</registered>
+            <logged>Последний вход</logged>
+            <flags>Флаги</flags>
+            <banned>заблокирован</banned>
+            <inactive>не активирован</inactive>
+            <edit>Редактировать</edit>
+            <change-password>Изменить пароль</change-password>
+            <new-password>Новый пароль</new-password>
+            <save>Сохранить</save>
+            <additionals>Дополнительные поля</additionals>
+            <ban>Забанить</ban>
+            <unban>Разбанить</unban>
+            <moderator>Сделать модератором</moderator>
+            <unModerator>Снять модератора</unModerator>
+            <moderator_flag>модератор</moderator_flag>
+            <userDataSaved>Данные пользователя сохранены.</userDataSaved>
+            <userDataSavedPassChanged>Данные пользователя сохранены, пароль изменен.
+            </userDataSavedPassChanged>
+            <activate>Активировать</activate>
+            <mainParams>Основные параметры</mainParams>
+            <addonFields>Дополнительные поля</addonFields>
+            <fieldName>Дополнительное поле</fieldName>
+            <fieldValue>Значение</fieldValue>
+            <search>
+                <name>Логин или почта</name>
+            </search>
+        </adm>
+        <info>
+            <name>Имя</name>
+            <city>Город</city>
+            <address>Адрес</address>
+            <phone>Телефон</phone>
+        </info>
+    </auth>
+</locale>

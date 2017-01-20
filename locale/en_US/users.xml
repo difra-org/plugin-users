@@ -1,0 +1,185 @@
+<locale>
+    <auth>
+        <forms>
+            <loginTitle>Sign in:</loginTitle>
+            <rememberMe>Remember me</rememberMe>
+            <recoverPassword>password recovery</recoverPassword>
+            <enter>Enter</enter>
+            <recoverPasswordTitle>Password recovery</recoverPasswordTitle>
+            <recoverPasswordFormTitle>Choose new password:</recoverPasswordFormTitle>
+            <recover>Recover</recover>
+            <enterNewPassword>Enter new password.</enterNewPassword>
+            <enterNewPassword2>Enter new password once more.</enterNewPassword2>
+            <save>Save</save>
+            <registrationTitle>Registration:</registrationTitle>
+            <registration>Register</registration>
+            <errors>
+                <emailRequired>Please fill your email address.</emailRequired>
+                <passwordRequired>Please fill password.</passwordRequired>
+                <captchaRequired>Please fill text from image.</captchaRequired>
+            </errors>
+        </forms>
+        <placeholders>
+            <email>User name (e-mail)</email>
+            <password>Password</password>
+            <againPassword>Password (once more)</againPassword>
+            <nickname>Nickname</nickname>
+            <captcha>Text from image</captcha>
+        </placeholders>
+        <fieldDescs>
+            <email>You'll get confirmation mail to this address.</email>
+            <password>You'll use this password to sign in.</password>
+            <password2>Your password once more.</password2>
+            <nickname>Display name.</nickname>
+            <capcha>Text from image.</capcha>
+        </fieldDescs>
+
+        <mail>
+            <recover>
+                <subject>Password reset</subject>
+                <text1>Hello.&lt;br/&gt;&lt;br/&gt;If you want change your password, please follow this
+                    link:&lt;br/&gt;</text1>
+                <text2>&lt;br/&gt;&lt;br/&gt;This link is valid for&#160;</text2>
+                <text3>hours.&lt;br/&gt;If you didn't request password reset, please ignore this
+                    mail.&lt;br/&gt;</text3>
+            </recover>
+            <registration>
+                <subject>Welcome!</subject>
+                <welcome1>Thank you for your registration on&#160;</welcome1>
+                <welcome2>.</welcome2>
+                <username>Your user name:&#160;</username>
+                <password>Your password:&#160;</password>
+                <moderate>As soon as moderator will approve your account, you'll get a message.
+                </moderate>
+                <email1>To confirm your e-mail address, please follow this link:&#160;</email1>
+                <email2>.</email2>
+                <email3>Warning! If you didn't register at this site, please do not click that link!
+                </email3>
+                <legal1>This is automatically generated message. For support, please
+                    contact&#160;</legal1>
+                <legal2>.</legal2>
+            </registration>
+        </mail>
+        <login>
+            <not_found>There is no user with such an e-mail address.</not_found>
+            <bad_password>Invalid password.</bad_password>
+            <bad_login_or_password>Invalid user name or password.</bad_login_or_password>
+            <inactive>This account is not activated. Please check your mail.</inactive>
+            <banned>This account is locked.</banned>
+            <recovered>Please check your e-mail for further instructions about how to reset your password.</recovered>
+        </login>
+        <recover>
+            <already_logged>Before using password reset, you should sign out.</already_logged>
+            <recover_invalid>Invalid password reset link. Please check that link in the mail and in address
+                bar are exact. If you think this is a mistake, feel
+                free to request password reset once more.
+            </recover_invalid>
+            <recover_used>This link is already used for password reset. Please make sure that you are open
+                recent message. If you think this is a mistake, feel
+                free to request password reset once more.
+            </recover_used>
+            <recover_outdated>This is outdated link. It was created long time ago and it was disabled for
+                security reasons. If you requested password reset,
+                probably you clicked password reset link from wrong message. If you think this is a
+                mistake, feel free to request password reset once more.
+            </recover_outdated>
+            <pw_empty>Please enter your password.</pw_empty>
+            <pw_short>Password is too short.</pw_short>
+            <pw_diff>Passwords do not match.</pw_diff>
+            <done>New password is set. Now you can sign in.</done>
+        </recover>
+        <register>
+            <already_logged>You are signed in. To register new account, you should sign out.
+            </already_logged>
+            <email_empty>Fill in your e-mail address.</email_empty>
+            <email_invalid>Invalid e-mail address.</email_invalid>
+            <email_dupe>User account with this e-mail address already exists.</email_dupe>
+            <email_ok>E-mail address is fine.</email_ok>
+            <password1_empty>Enter password.</password1_empty>
+            <password1_short>Minimum password length is 6 characters.</password1_short>
+            <password1_ok>Nice password.</password1_ok>
+            <password2_empty>Please enter your password once more.</password2_empty>
+            <passwords_diff>Passwords mismatch.</passwords_diff>
+            <password2_ok>Passwords match.</password2_ok>
+            <captcha_empty>Please enter text from image.</captcha_empty>
+            <captcha_invalid>Entered test does not match with the one shown on image.</captcha_invalid>
+            <captcha_ok>Correct.</captcha_ok>
+            <login_empty>Choose user name.</login_empty>
+            <login_invalid>Invalid user name.</login_invalid>
+            <login_dupe>This user name is not available.</login_dupe>
+            <login_short>
+                <part1>User name should not be shorter than </part1>
+                <part2> character</part2>
+                <part3>.</part3>
+            </login_short>
+            <login_long>
+                <part1>User name should not be longer than </part1>
+                <part2> character</part2>
+                <part3>.</part3>
+            </login_long>
+            <login_ok>User name looks good.</login_ok>
+            <complete-email>Thank you for your registration. Now you should get e-mail message with link for
+                activation of your registration.
+            </complete-email>
+            <complete-moderate>Thank you for your registration. You will receive an email when the moderator
+                activate your account.
+            </complete-moderate>
+            <complete-none>Thanks for signing up. Now you can log in.</complete-none>
+        </register>
+        <activate>
+            <done>Your account has been activated.</done>
+            <activate_notfound>Invalid link to activate your account.</activate_notfound>
+            <activate_used>This account has been activated.</activate_used>
+        </activate>
+        <password>
+            <bad_old>Current password is incorrect.</bad_old>
+            <old_ok>Current password is correct.</old_ok>
+            <changed>New password is saved.</changed>
+        </password>
+
+
+        <!-- старое — к постепенному удалению -->
+        <password>
+            <errors>
+                <pw_empty>Enter your password.</pw_empty>
+                <pw_short>Password is too short.</pw_short>
+                <pw_diff>Passwords mismatch.</pw_diff>
+            </errors>
+        </password>
+        <adm>
+            <h2-title>Users</h2-title>
+            <total>Total: </total>
+            <active>, active: </active>
+            <h3-useredit-common>User edit</h3-useredit-common>
+            <h3-useredit-info>Additional information</h3-useredit-info>
+            <users-empty>There are no users.</users-empty>
+            <user-not-found>There is no user with this ID</user-not-found>
+            <id>ID</id>
+            <email>E-mail</email>
+            <registered>Registered</registered>
+            <logged>Last login</logged>
+            <flags>Flags</flags>
+            <banned>banned</banned>
+            <inactive>not activated</inactive>
+            <edit>Edit</edit>
+            <change-password>Change password</change-password>
+            <new-password>New password</new-password>
+            <save>Save</save>
+            <additionals>Additional fields</additionals>
+            <ban>Ban</ban>
+            <unban>Unban</unban>
+            <moderator>Make moderator</moderator>
+            <unModerator>Remove moderator</unModerator>
+            <moderator_flag>moderator</moderator_flag>
+            <search>
+                <name>Login or email</name>
+            </search>
+        </adm>
+        <info>
+            <name>Name</name>
+            <city>City</city>
+            <address>Address</address>
+            <phone>Phone</phone>
+        </info>
+    </auth>
+</locale>
