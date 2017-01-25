@@ -38,9 +38,7 @@ class RecoverController extends \Difra\Controller
             Ajaxer::required('captcha');
             $error = true;
         }
-        /** @var \Difra\Plugins\Capcha $captchaClass */
-        $captchaClass = \Difra\Plugger::getClass('captcha');
-        if (!$captchaClass::getInstance()->verifyKey($captcha->val())) {
+        if (!\Difra\Capcha::getInstance()->verifyKey($captcha->val())) {
             Ajaxer::invalid('captcha');
             $error = true;
         }

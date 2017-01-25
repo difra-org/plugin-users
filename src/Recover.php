@@ -1,10 +1,9 @@
 <?php
 
-namespace Difra\Plugins\Users;
+namespace Difra\Users;
 
 use Difra\DB;
 use Difra\Mailer;
-use Difra\Plugins\Users;
 
 /**
  * Class Recover

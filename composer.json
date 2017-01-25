@@ -12,5 +12,13 @@
             "name": "Eduard Kutuev",
             "email": "nap@napych.com"
         }
-    ]
+    ],
+    "autoload": {
+        "files": [
+            "Plugin.php"
+        ],
+        "psr-4": {
+            "Difra\\Users\\": "src"
+        }
+    }
 }
