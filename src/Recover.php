@@ -2,6 +2,7 @@
 
 namespace Difra\Users;
 
+use Difra\Users;
 use Difra\DB;
 use Difra\Mailer;
 

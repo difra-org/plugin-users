@@ -1,14 +1,14 @@
 <?php
 
-namespace Difra\Plugins\Users;
+namespace Difra\Users;
 
 use Difra\Ajaxer;
+use Difra\Capcha;
 use Difra\Config;
 use Difra\Exception;
 use Difra\Locales;
 use Difra\DB;
 use Difra\Locales\Wordforms;
-use Difra\Plugger;
 use Difra\Plugins\Users;
 use Difra\Security\Filter\Email;
 
@@ -274,18 +274,16 @@ class Register
      */
     private function verifyCaptcha()
     {
-        /** @var \Difra\Plugins\Capcha $captcha */
-        $captcha = Plugger::getClass('captcha');
         if (!$this->ignoreEmpty) {
             if (!$this->captcha) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_EMPTY;
-            } elseif (!$captcha::getInstance()->verifyKey($this->captcha)) {
+            } elseif (!Capcha::getInstance()->verifyKey($this->captcha)) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_INVALID;
             } else {
                 return $this->successful['capcha'] = self::REGISTER_CAPTCHA_OK;
             }
         } elseif ($this->captcha !== '') {
-            if (!$captcha::getInstance()->verifyKey($this->captcha)) {
+            if (!Capcha::getInstance()->verifyKey($this->captcha)) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_INVALID;
             }
         }

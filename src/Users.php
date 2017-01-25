@@ -1,8 +1,6 @@
 <?php
 
-namespace Difra\Plugins;
-
-use Difra\Config;
+namespace Difra;
 
 /**
  * Class Users

@@ -1,6 +1,6 @@
 <?php
 
-namespace Difra\Plugins\Users;
+namespace Difra\Users;
 
 use Difra\Auth;
 use Difra\Exception;

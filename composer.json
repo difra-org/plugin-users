@@ -15,7 +15,10 @@
     ],
     "autoload": {
         "files": [
-            "Plugin.php"
+            "main.php"
+        ],
+        "classmap": [
+            "src/Users.php"
         ],
         "psr-4": {
             "Difra\\Users\\": "src"
