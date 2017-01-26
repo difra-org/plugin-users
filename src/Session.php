@@ -2,11 +2,11 @@
 
 namespace Difra\Users;
 
+use Difra\Users;
 use Difra\Auth;
 use Difra\Exception;
 use Difra\Libs\Cookies;
 use Difra\DB;
-use Difra\Plugins\Users;
 
 /**
  * Class Session
@@ -15,6 +15,9 @@ use Difra\Plugins\Users;
  */
 class Session
 {
+    /**
+     * Save session
+     */
     public static function save()
     {
         if (!Auth::getInstance()->isAuthorized() or isset($_COOKIE['resume'])) {
@@ -32,6 +35,9 @@ class Session
         );
     }
 
+    /**
+     * Delete session
+     */
     public static function remove()
     {
         if (!empty($_COOKIE['resume'])) {
@@ -43,6 +49,9 @@ class Session
         }
     }
 
+    /**
+     * Load session
+     */
     public static function load()
     {
         if (Auth::getInstance()->isAuthorized()) {
