@@ -6,7 +6,7 @@ use Difra\Auth;
 use Difra\Exception;
 use Difra\DB;
 use Difra\Mailer;
-use Difra\Plugins\Users;
+use Difra\Users;
 
 /**
  * Class User
@@ -48,11 +48,17 @@ class User
     {
     }
 
+    /**
+     * Destructor
+     */
     public function __destruct()
     {
         $this->save();
     }
 
+    /**
+     * Save changes
+     */
     public function save()
     {
         if (!$this->modified) {
@@ -555,6 +561,10 @@ class User
         return $user;
     }
 
+    /**
+     * Activation action depending on activation method
+     * @throws Exception
+     */
     public function autoActivation()
     {
         switch ($method = Users::getActivationMethod()) {
@@ -582,6 +592,11 @@ class User
         $this->modified = true;
     }
 
+    /**
+     * Set user's additional field value
+     * @param string $name
+     * @param string $value
+     */
     public function setField($name, $value)
     {
         DB::getInstance(Users::getDB())->query(

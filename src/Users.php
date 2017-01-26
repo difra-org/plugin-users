@@ -4,7 +4,7 @@ namespace Difra;
 
 /**
  * Class Users
- * @package Difra\Plugins
+ * @package Difra\Users
  */
 class Users
 {
@@ -70,11 +70,19 @@ class Users
         return Config::getInstance()->getValue('auth', 'confirmation') ?: 'email';
     }
 
+    /**
+     * Get recovery link TTL
+     * @return int
+     */
     public static function getRecoverTTL()
     {
         return self::RECOVER_TTL;
     }
 
+    /**
+     * Use single error on both login and password errors
+     * @return bool
+     */
     public static function isSingleError()
     {
         return Config::getInstance()->getValue('auth', 'single_error') ?: false;

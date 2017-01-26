@@ -9,7 +9,7 @@ use Difra\Exception;
 use Difra\Locales;
 use Difra\DB;
 use Difra\Locales\Wordforms;
-use Difra\Plugins\Users;
+use Difra\Users;
 use Difra\Security\Filter\Email;
 
 /**
@@ -41,15 +41,25 @@ class Register
     const REGISTER_LOGIN_OK = 'login_ok';
     const LOGIN_REGEX = '/^[a-zA-Z0-9]([a-zA-Z0-9._-]*)$/';
     const MIN_PASSWORD_LENGTH = 6;
+    /** @var array Failures list */
     private $failures = [];
+    /** @var array Successful fields list */
     private $successful = [];
+    /** @var string E-Mail */
     private $email = null;
+    /** @var string Login name */
     private $login = null;
+    /** @var string Password (1) */
     private $password1 = null;
+    /** @var string Password (2) */
     private $password2 = null;
+    /** @var string Captcha value */
     private $captcha = null;
+    /** @var bool Ignore empty fields on validation */
     private $ignoreEmpty = false;
+    /** @var bool Fast validation */
     private $fast = false;
+    /** @var bool Valid flag */
     private $valid = false;
 
     /**
