@@ -569,13 +569,20 @@ class User
     {
         switch ($method = Users::getActivationMethod()) {
             case 'email':
-                $mailData = [
+                $mailer = Mailer::getInstance();
+                $mailer->setTo($this->email);
+                $mailer->setSubject(
+                     Locales::get('auth/mail/registration/subject-activation-1')
+                     . Envi::getHost(true)
+                     . Locales::get('auth/mail/registration/subject-activation-2')
+                );
+                $mailer->render('mail_registration', [
                     'username' => $this->login ?: $this->email,
                     'ttl' => Users::ACTIVATE_TTL,
                     'code' => $this->activation,
                     'confirm' => $method
-                ];
-                Mailer::getInstance()->createMail($this->email, 'mail_registration', $mailData);
+                ]);
+                $mailer->send();
                 break;
             default:
                 throw new Exception('Unknown activation method: ' . $method);
