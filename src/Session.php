@@ -72,12 +72,12 @@ class Session
                 throw new Exception('Long session not found in database');
             }
 
-            // check ip
-            if ($session['ip'] & ip2long(Users::IP_MASK) != ip2long($_SERVER['REMOTE_ADDR']) &
-                ip2long(Users::IP_MASK)
-            ) {
-                throw new Exception('Long session IP does not match');
-            }
+//            // check ip
+//            if ($session['ip'] & ip2long(Users::IP_MASK) != ip2long($_SERVER['REMOTE_ADDR']) &
+//                ip2long(Users::IP_MASK)
+//            ) {
+//                throw new Exception('Long session IP does not match');
+//            }
 
             // find user
             $user = User::getById($session['user']);
