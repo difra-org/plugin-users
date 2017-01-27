@@ -20,4 +20,6 @@ class UsersException extends Exception
     const LOGIN_INACTIVE = 'inactive';
     /** Login: bad password */
     const LOGIN_BADPASS = 'bad_password';
+    /** Login is already active (for activation mail request) */
+    const LOGIN_ACTIVE = 'already_active';
 }
