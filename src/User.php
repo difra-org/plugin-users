@@ -618,4 +618,13 @@ class User
             ]
         );
     }
+
+    /**
+     * Get activation code
+     * @return string|null
+     */
+    public function getActivationCode()
+    {
+        return $this->activation;
+    }
 }
