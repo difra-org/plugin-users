@@ -2,7 +2,7 @@
 
 namespace Difra\Users;
 
-use Difra\Events;
+use Difra\Events\Event;
 
 /**
  * Class Plugin
@@ -15,7 +15,7 @@ class Plugin extends \Difra\Plugin
      */
     protected function init()
     {
-        Events::register(Events::EVENT_PLUGIN_INIT, '\Difra\Users\Session::load');
+        Event::getInstance(Event::EVENT_PLUGIN_INIT)->registerHandler('\Difra\Users\Session::load');
     }
 }
 
