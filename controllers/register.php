@@ -6,10 +6,9 @@ use Difra\Locales;
 use Difra\Param\AjaxCheckbox;
 use Difra\Param\AjaxString;
 use Difra\Param\AnyString;
-use Difra\Plugins\Users;
-use Difra\Param;
-use Difra\Plugins\Users\Register;
-use Difra\Plugins\Users\UsersException;
+use Difra\Users;
+use Difra\Users\Register;
+use Difra\Users\UsersException;
 use Difra\View;
 
 /**
