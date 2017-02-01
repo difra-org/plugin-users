@@ -6,7 +6,7 @@ use Difra\Libs\Cookies;
 use Difra\Locales;
 use Difra\Param\AjaxString;
 use Difra\Param\AnyString;
-use Difra\Plugins\Users\Recover;
+use Difra\Users\Recover;
 use Difra\View;
 
 /**
@@ -114,12 +114,12 @@ class RecoverController extends \Difra\Controller
     {
         try {
             Recover::verify($code->val());
-        } catch (\Difra\Plugins\Users\UsersException $ex) {
+        } catch (\Difra\Users\UsersException $ex) {
             Ajaxer::notify(Locales::get('auth/recover/' . $ex->getMessage()));
             return;
         }
         // verify passwords
-        $register = new \Difra\Plugins\Users\Register();
+        $register = new \Difra\Users\Register();
         $register->setPassword1($password1->val());
         $register->setPassword2($password2->val());
         if (!$register->validatePasswords()) {
