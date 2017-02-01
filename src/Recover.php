@@ -2,6 +2,7 @@
 
 namespace Difra\Users;
 
+use Difra\Locales;
 use Difra\Users;
 use Difra\DB;
 use Difra\Mailer;
@@ -43,11 +44,11 @@ class Recover
         } while ($d);
         $db->query("INSERT INTO `user_recover` (`recover`,`user`) VALUES (?,?)", [$key, $data['id']]);
         $db->query("DELETE FROM `user_recover` WHERE `date_requested`<DATE_SUB(NOW(),INTERVAL 1 YEAR)");
-        Mailer::getInstance()->CreateMail(
-            $data['email'],
-            'mail_recover',
-            ['code' => $key, 'ttl' => Users::getRecoverTTL()]
-        );
+        $mailer = Mailer::getInstance();
+        $mailer->setTo($data['email']);
+        $mailer->setSubject(Locales::get('auth/mail/recover/subject'));
+        $mailer->render('mail_recover', ['code' => $key, 'ttl' => Users::getRecoverTTL()]);
+        $mailer->send();
         return true;
     }
 
