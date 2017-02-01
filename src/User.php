@@ -3,8 +3,10 @@
 namespace Difra\Users;
 
 use Difra\Auth;
+use Difra\Envi;
 use Difra\Exception;
 use Difra\DB;
+use Difra\Locales;
 use Difra\Mailer;
 use Difra\Users;
 
