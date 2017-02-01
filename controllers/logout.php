@@ -1,7 +1,7 @@
 <?php
 
 use Difra\Ajaxer;
-use Difra\Plugins\Users\User;
+use Difra\Users\User;
 
 /**
  * Class LogoutController

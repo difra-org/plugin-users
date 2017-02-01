@@ -3,9 +3,9 @@
 use Difra\Ajaxer;
 use Difra\Locales;
 use Difra\Param;
-use Difra\Plugins\Users\Register;
-use Difra\Plugins\Users\User;
-use Difra\Plugins\Users\UsersException;
+use Difra\Users\Register;
+use Difra\Users\User;
+use Difra\Users\UsersException;
 use Difra\Controller;
 
 /**
