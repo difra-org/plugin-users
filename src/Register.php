@@ -403,6 +403,7 @@ class Register
         $user->setLogin($this->login);
         $user->save();
         $user->autoActivation();
+        // todo: move to event
         if (function_exists('postRegister')) {
             postRegister($user);
         }
