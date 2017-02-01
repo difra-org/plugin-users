@@ -2,9 +2,9 @@
 
 use Difra\Ajaxer;
 use Difra\Locales;
-use Difra\Plugins;
 use Difra\Param;
-use Difra\Plugins\Users\User;
+use Difra\Users\User;
+use Difra\Users\UsersException;
 
 /**
  * Class AdmUsersListController
@@ -33,7 +33,7 @@ class AdmUsersListController extends Difra\Controller\Adm
     /**
      * Edit user (form)
      * @param Param\AnyInt $id
-     * @throws Plugins\Users\UsersException
+     * @throws UsersException
      */
     public function editAction(Param\AnyInt $id)
     {
@@ -81,7 +81,7 @@ class AdmUsersListController extends Difra\Controller\Adm
     /**
      * Ban user
      * @param Param\AnyInt $id
-     * @throws Plugins\Users\UsersException
+     * @throws UsersException
      */
     public function banAjaxAction(Param\AnyInt $id)
     {
@@ -92,7 +92,7 @@ class AdmUsersListController extends Difra\Controller\Adm
     /**
      * Unban user
      * @param Param\AnyInt $id
-     * @throws Plugins\Users\UsersException
+     * @throws UsersException
      */
     public function unbanAjaxAction(Param\AnyInt $id)
     {
