@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         try {
             User::loginByPassword($login->val(), $password->val(), ($rememberMe->val() == 1) ? true : false);
-            $this->afterLoginAjax();
+            \Difra\Events\Event::getInstance(\Difra\Users::EVENT_LOGIN_DONE_AJAX)->trigger();
         } catch (UsersException $ex) {
             switch ($error = $ex->getMessage()) {
                 case UsersException::LOGIN_BADPASS:
@@ -54,14 +54,6 @@ class LoginController extends Controller
             $ex->notify();
 //            Ajaxer::status('login', Locales::get('auth/login/' . $ex->getMessage()), 'problem');
         }
-    }
-
-    /**
-     * Method is called after successful ajax login
-     */
-    protected function afterLoginAjax()
-    {
-        Ajaxer::reload();
     }
 
     /**
@@ -111,15 +103,6 @@ class LoginController extends Controller
             return;
         }
         $user->setPassword($password1->val());
-        $this->afterPasswordChangeAjax();
-    }
-
-    /**
-     * After ajax password change stuff
-     */
-    protected function afterPasswordChangeAjax()
-    {
-        Ajaxer::notify(Locales::get('auth/password/changed'));
-        Ajaxer::reset();
+        \Difra\Events\Event::getInstance(\Difra\Users::EVENT_PASSWORD_CHANGED_AJAX)->trigger();
     }
 }

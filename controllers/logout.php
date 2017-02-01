@@ -1,6 +1,7 @@
 <?php
 
-use Difra\Ajaxer;
+use Difra\Events\Event;
+use Difra\Users;
 use Difra\Users\User;
 
 /**
@@ -23,15 +24,6 @@ class LogoutController extends \Difra\Controller
     public function indexAjaxAction()
     {
         User::logout();
-        $this->afterLogoutAjax();
-    }
-
-    /**
-     * After ajax logout stuff
-     */
-    protected function afterLogoutAjax()
-    {
-        // TODO: redirect to / if page requires auth
-        Ajaxer::reload();
+        Event::getInstance(Users::EVENT_LOGOUT_DONE_AJAX)->trigger();
     }
 }

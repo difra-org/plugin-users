@@ -8,6 +8,11 @@ namespace Difra;
  */
 class Users
 {
+    // events
+    const EVENT_PASSWORD_CHANGED_AJAX = 'users-pw-changed-ajax';
+    const EVENT_LOGOUT_DONE_AJAX = 'users-logout-done-ajax';
+    const EVENT_LOGIN_DONE_AJAX = 'users-login-done-ajax';
+    // settings
     const DB = 'users';
     const RECOVER_TTL = 72; // hours
     const ACTIVATE_TTL = 7 * 24; // hours

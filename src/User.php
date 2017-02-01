@@ -4,6 +4,7 @@ namespace Difra\Users;
 
 use Difra\Auth;
 use Difra\Envi;
+use Difra\Events\Event;
 use Difra\Exception;
 use Difra\DB;
 use Difra\Locales;
