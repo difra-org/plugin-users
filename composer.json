@@ -3,8 +3,8 @@
     "description": "Users plugin for Difra framework",
     "type": "library",
     "require": {
-        "difra/difra": "7.0.x-dev",
-        "difra/capcha": "dev-master"
+        "difra/difra": "~7.0.0",
+        "difra/capcha": "~1.0.0"
     },
     "license": "BSD-2-Clause",
     "authors": [
@@ -13,6 +13,10 @@
             "email": "nap@napych.com"
         }
     ],
+    "dist": {
+        "url": "https://www.difra.org/download/difra-users-1.0.0.zip",
+        "type": "zip"
+    },
     "autoload": {
         "files": [
             "main.php"
