@@ -13,19 +13,18 @@ use Difra\Controller;
  */
 class LoginController extends Controller
 {
-//    /**
-//     * Login form
-//     * @return void
-//     */
-//    public function indexAction()
-//    {
-//        if (\Difra\Auth::getInstance()->isAuthorized()) {
-//            Ajaxer::reload();
-//            return;
-//        }
-//        $this->root->appendChild($this->xml->createElement('login'));
-////        Ajaxer::display(\Difra\View::render($this->xml, 'auth-ajax', true));
-//    }
+    /**
+     * Login form
+     * @return void
+     */
+    public function indexAjaxAction()
+    {
+        if (\Difra\Auth::getInstance()->isAuthorized()) {
+            Ajaxer::reload();
+            return;
+        }
+        \Difra\Events\Event::getInstance(\Difra\Users::EVENT_LOGIN_FORM_AJAX)->trigger();
+    }
 
     /**
      * User login
@@ -33,7 +32,7 @@ class LoginController extends Controller
      * @param Difra\Param\AjaxString $password
      * @param Difra\Param\AjaxCheckbox $rememberMe
      */
-    public function indexAjaxAction(Param\AjaxString $login, Param\AjaxString $password, Param\AjaxCheckbox $rememberMe)
+    public function authAjaxAction(Param\AjaxString $login, Param\AjaxString $password, Param\AjaxCheckbox $rememberMe)
     {
         try {
             User::loginByPassword($login->val(), $password->val(), ($rememberMe->val() == 1) ? true : false);
@@ -62,7 +61,7 @@ class LoginController extends Controller
      * @param Difra\Param\AjaxString $password
      * @param Difra\Param\AjaxCheckbox $rememberMe
      */
-    public function indexAjaxActionAuth(
+    public function authAjaxActionAuth(
         /** @noinspection PhpUnusedParameterInspection */
         Param\AjaxString $login,
         Param\AjaxString $password,
