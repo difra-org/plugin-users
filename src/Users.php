@@ -12,6 +12,7 @@ class Users
     const EVENT_PASSWORD_CHANGED_AJAX = 'users-pw-changed-ajax';
     const EVENT_LOGOUT_DONE_AJAX = 'users-logout-done-ajax';
     const EVENT_LOGIN_DONE_AJAX = 'users-login-done-ajax';
+    const EVENT_LOGIN_FORM_AJAX = 'users-login-form-ajax';
     // settings
     const DB = 'users';
     const RECOVER_TTL = 72; // hours
