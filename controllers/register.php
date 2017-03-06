@@ -38,8 +38,7 @@ class RegisterController extends \Difra\Controller
      */
     public function indexAjaxAction()
     {
-        $this->root->appendChild($this->xml->createElement('register'));
-        Ajaxer::display(\Difra\View::render($this->xml, 'auth-ajax', true));
+        \Difra\Events\Event::getInstance(Users::EVENT_REGISTER_FORM_AJAX)->trigger();
     }
 
     /**
@@ -47,9 +46,7 @@ class RegisterController extends \Difra\Controller
      */
     public function indexAjaxActionAuth()
     {
-        // TODO: message
         Ajaxer::reload();
-        // TODO: log
     }
 
     /**
@@ -92,26 +89,7 @@ class RegisterController extends \Difra\Controller
         }
 
         $register->register();
-        $this->afterSuccess();
-    }
-
-    /**
-     * After success actions
-     * @param $redirect
-     */
-    protected function afterSuccess($redirect = false)
-    {
-        if ($redirect) {
-            Cookies::getInstance()->notify(
-                Locales::get('auth/register/complete-' . Users::getActivationMethod())
-            );
-            View::redirect('/');
-        } else {
-            Ajaxer::notify(
-                Locales::get('auth/register/complete-' . Users::getActivationMethod())
-            );
-            Ajaxer::close();
-        }
+        \Difra\Events\Event::getInstance(Users::EVENT_REGISTER_DONE_AJAX)->trigger();
     }
 
     /**
@@ -126,6 +104,7 @@ class RegisterController extends \Difra\Controller
     /**
      * Activation link
      * @param AnyString $code
+     * TODO: move to event
      */
     public function activateAction(AnyString $code)
     {

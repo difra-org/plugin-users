@@ -1,3 +1,7 @@
+1.0.2
+
+ + Added Users::EVENT_REGISTER_FORM_AJAX, Users::EVENT_REGISTER_DONE_AJAX events
+
 1.0.1
 
  + Added Users::EVENT_LOGIN_FORM_AJAX event for ajax login form display
@@ -5,4 +9,5 @@
  * /login/auth now authorizes user
 
 1.0.0
+
  + Initial Users plugin version for Difra 7.0

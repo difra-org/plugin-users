@@ -358,7 +358,7 @@ class Register
                                 $loginMinChars
                             )
                             . Locales::get('auth/register/login_short/part3'),
-                            'error'
+                            'problem'
                         );
                         break;
                     case self::REGISTER_LOGIN_LONG:
@@ -373,11 +373,11 @@ class Register
                                 $loginMaxChars
                             )
                             . Locales::get('auth/register/login_long/part3'),
-                            'error'
+                            'problem'
                         );
                         break;
                     default:
-                        Ajaxer::status($field, Locales::get('auth/register/' . $result), 'error');
+                        Ajaxer::status($field, Locales::get('auth/register/' . $result), 'problem');
                 }
             }
             return false;
