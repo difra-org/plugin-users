@@ -25,9 +25,9 @@
             <againPassword>Password (once more)</againPassword>
             <nickname>Nickname</nickname>
             <captcha>Text from image</captcha>
-            <old-password>Current password</old-password>
-            <new-password-1>New password</new-password-1>
-            <new-password-2>New password once more</new-password-2>
+            <oldPassword>Current password</oldPassword>
+            <newPassword1>New password</newPassword1>
+            <newPassword2>New password once more</newPassword2>
         </placeholders>
         <fieldDescs>
             <email>You'll get confirmation mail to this address.</email>
