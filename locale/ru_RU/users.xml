@@ -25,6 +25,9 @@
             <againPassword>Пароль (ещё раз)</againPassword>
             <nickname>Псевдоним</nickname>
             <captcha>Код подтверждения</captcha>
+            <oldPassword>Старый пароль</oldPassword>
+            <newPassword1>Новый пароль</newPassword1>
+            <newPassword2>Новый пароль ещё раз</newPassword2>
         </placeholders>
         <fieldDescs>
             <email>На этот адрес вам придёт письмо для подтверждения.</email>

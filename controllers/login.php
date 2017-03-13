@@ -77,10 +77,27 @@ class LoginController extends Controller
      * @param Difra\Param\AjaxString $password2
      */
     public function passwordAjaxActionAuth(
-        Param\AjaxString $oldpassword,
-        Param\AjaxString $password1,
-        Param\AjaxString $password2
+        Param\AjaxCheckbox $submit,
+        Param\AjaxString $oldpassword = null,
+        Param\AjaxString $password1 = null,
+        Param\AjaxString $password2 = null
     ) {
+        if (!$submit->val()) {
+            \Difra\Events\Event::getInstance(\Difra\Users::EVENT_PASSWORD_CHANGE_FORM_AJAX)->trigger();
+            return;
+        }
+        if (is_null($oldpassword) or $oldpassword->val() === '') {
+            Ajaxer::required('oldpassword');
+        }
+        if (is_null($password1) or $password1->val() === '') {
+            Ajaxer::required('password1');
+        }
+        if (is_null($password2) or $password2->val() === '') {
+            Ajaxer::required('password2');
+        }
+        if (Ajaxer::hasProblem()) {
+            return;
+        }
         $user = User::getCurrent();
         if (!$user->verifyPassword($oldpassword)) {
             Ajaxer::status('oldpassword', Locales::get('auth/password/bad_old'), 'problem');
@@ -102,6 +119,6 @@ class LoginController extends Controller
             return;
         }
         $user->setPassword($password1->val());
-        \Difra\Events\Event::getInstance(\Difra\Users::EVENT_PASSWORD_CHANGED_AJAX)->trigger();
+        \Difra\Events\Event::getInstance(\Difra\Users::EVENT_PASSWORD_CHANGE_DONE_AJAX)->trigger();
     }
 }

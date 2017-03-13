@@ -13,8 +13,12 @@ class Users
     const EVENT_LOGIN_DONE_AJAX = 'users-login-done-ajax';
     const EVENT_REGISTER_FORM_AJAX = 'users-register-form-ajax';
     const EVENT_REGISTER_DONE_AJAX = 'users-register-done-ajax';
-    const EVENT_PASSWORD_CHANGED_AJAX = 'users-pw-changed-ajax';
+    const EVENT_PASSWORD_CHANGE_FORM_AJAX = 'users-password-change-form-ajax';
+    const EVENT_PASSWORD_CHANGE_DONE_AJAX = 'users-password-change-done-ajax';
     const EVENT_LOGOUT_DONE_AJAX = 'users-logout-done-ajax';
+    const EVENT_RECOVER_FORM_AJAX = 'users-recover-form-ajax';
+    const EVENT_RECOVER_DONE_AJAX = 'users-recover-done-ajax';
+
     // settings
     const DB = 'users';
     const RECOVER_TTL = 72; // hours

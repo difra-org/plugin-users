@@ -20,25 +20,23 @@ class RecoverController extends \Difra\Controller
      * @param AjaxString $captcha
      * @throws Exception
      */
-    public function indexAjaxAction(AjaxString $login, AjaxString $captcha)
+    public function indexAjaxAction(AjaxString $submit = null, AjaxString $login = null, AjaxString $captcha = null)
     {
         // show recover form
-        if (is_null($login)) {
-            $this->root->appendChild($this->xml->createElement('recover'));
-            Ajaxer::display(View::render($this->xml, 'auth-ajax', true));
+        if (is_null($submit)) {
+            \Difra\Events\Event::getInstance(\Difra\Users::EVENT_RECOVER_FORM_AJAX)->trigger();
             return;
         }
         $error = false;
         // login's empty
-        if ($login->val() === '') {
+        if (is_null($login) or $login->val() === '') {
             Ajaxer::required('login');
             $error = true;
         }
-        if (!$captcha or $captcha->val() == '') {
+        if (is_null($captcha) or $captcha->val() === '') {
             Ajaxer::required('captcha');
             $error = true;
-        }
-        if (!\Difra\Capcha::getInstance()->verifyKey($captcha->val())) {
+        } elseif (!\Difra\Capcha::getInstance()->verifyKey($captcha->val())) {
             Ajaxer::invalid('captcha');
             $error = true;
         }
@@ -48,8 +46,7 @@ class RecoverController extends \Difra\Controller
         // recover
         try {
             Recover::send($login->val());
-            Ajaxer::close();
-            Ajaxer::notify(Locales::get('auth/login/recovered'));
+            \Difra\Events\Event::getInstance(\Difra\Users::EVENT_RECOVER_DONE_AJAX)->trigger();
         } catch (Exception $ex) {
 //            Ajaxer::status('email', Locales::get('auth/login/' . $ex->getMessage()), 'problem');
             Ajaxer::error(Locales::get('auth/login/' . $ex->getMessage()));

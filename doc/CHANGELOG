@@ -1,3 +1,9 @@
+1.0.3
+
+ + Added password change ajax form and events, /login/password now requires "submit" form field
+ + Added password recovery ajax form and events, /recover now requires "submit" form field
+ * Handlers are simplified with View::simpleTemplate() method (requires difra-7.0.0-alpha5)
+
 1.0.2
 
  + Added Users::EVENT_REGISTER_FORM_AJAX, Users::EVENT_REGISTER_DONE_AJAX events
