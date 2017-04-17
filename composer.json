@@ -14,7 +14,7 @@
         }
     ],
     "dist": {
-        "url": "https://www.difra.org/download/difra-users-1.0.2.zip",
+        "url": "https://www.difra.org/download/difra-users-1.0.3.zip",
         "type": "zip"
     },
     "autoload": {
