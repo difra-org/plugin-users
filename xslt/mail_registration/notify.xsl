@@ -31,9 +31,8 @@
                     <xsl:when test="@confirm='email'">
                         <xsl:value-of select="/mail/locale/auth/mail/registration/email1"
                                       disable-output-escaping="yes"/>
-                        <a href="http://{@host}/register/activate/{@code}">
-                            <xsl:text>http://</xsl:text>
-                            <xsl:value-of select="@host"/>
+                        <a href="{@fullhost}/register/activate/{@code}">
+                            <xsl:value-of select="@fullhost"/>
                             <xsl:text>/register/activate/</xsl:text>
                             <xsl:value-of select="@code"/>
                         </a>

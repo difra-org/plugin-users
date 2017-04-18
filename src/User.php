@@ -583,7 +583,9 @@ class User
                     'username' => $this->login ?: $this->email,
                     'ttl' => Users::ACTIVATE_TTL,
                     'code' => $this->activation,
-                    'confirm' => $method
+                    'confirm' => $method,
+                    'host' => Envi::getHost(true),
+                    'fullhost' => Envi::getURLPrefix()
                 ]);
                 $mailer->send();
                 break;
