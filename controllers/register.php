@@ -17,6 +17,17 @@ use Difra\View;
 class RegisterController extends \Difra\Controller
 {
     /**
+     * Dispatcher
+     */
+    public function dispatch()
+    {
+        $enabled = Difra\Config::getInstance()->getValue('auth', 'registration');
+        if ($enabled === false) {
+            throw new Difra\View\HttpError(404);
+        }
+    }
+
+    /**
      * Registration form (page)
      */
     public function indexAction()
