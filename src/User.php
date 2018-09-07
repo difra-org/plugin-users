@@ -153,6 +153,10 @@ class User
                         $whereArr[] = '(`login` LIKE :name OR `email` LIKE :name)';
                         $whereParams['name'] = $v . '%';
                         break;
+                    case 'banned':
+                        $whereArr[] = '(`banned`=:banned)';
+                        $whereParams['banned'] = $v ? '1' : '0';
+                        break;
                     default:
                         throw new \Difra\Exception('Unknown user search key: ' . $k);
                 }
@@ -198,7 +202,7 @@ class User
                 $infoNode->setAttribute($k, $v);
             }
         }
-        return $node;
+        return $subNode;
     }
 
     /**
