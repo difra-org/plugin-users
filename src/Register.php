@@ -95,7 +95,7 @@ class Register
                 return $this->failures['email'] = self::REGISTER_EMAIL_EMPTY;
             } elseif (!Email::validate($this->email)) {
                 return $this->failures['email'] = self::REGISTER_EMAIL_INVALID;
-            } elseif (!$fast and !self::isEmailAvailable($this->email)) {
+            } elseif (!$fast and !User::isEmailAvailable($this->email)) {
                 return $this->failures['email'] = self::REGISTER_EMAIL_EXISTS;
             } else {
                 return $this->successful['email'] = self::REGISTER_EMAIL_OK;
@@ -103,26 +103,13 @@ class Register
         } elseif ($this->email !== '') {
             if (!Email::validate($this->email)) {
                 return $this->failures['email'] = self::REGISTER_EMAIL_INVALID;
-            } elseif (!$fast and !self::isEmailAvailable($this->email)) {
+            } elseif (!$fast and !User::isEmailAvailable($this->email)) {
                 return $this->failures['email'] = self::REGISTER_EMAIL_EXISTS;
             }
         }
         return null;
     }
 
-    /**
-     * Isn't e-mail exists?
-     * @param $email
-     * @return bool
-     * @throws Exception
-     */
-    private static function isEmailAvailable($email)
-    {
-        return DB::getInstance(Users::getDB())->fetchOne(
-            'SELECT `id` FROM `user` WHERE `email`=?',
-            [$email]
-        ) ? false : true;
-    }
 
     /**
      * Set user name
