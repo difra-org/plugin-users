@@ -1,6 +1,6 @@
 CREATE TABLE `user` (
   `id`         INT(11)    NOT NULL AUTO_INCREMENT,
-  `email`      CHAR(250)  NOT NULL,
+  `email`      CHAR(255)  NOT NULL,
   `login`      CHAR(80)            DEFAULT NULL,
   `password`   CHAR(40)   NOT NULL,
   `active`     TINYINT(1) NOT NULL DEFAULT '0',
@@ -54,6 +54,7 @@ CREATE TABLE `user_session` (
   `ip`      INT(11) UNSIGNED NOT NULL,
   PRIMARY KEY (`session`),
   KEY `session` (`session`),
+  KEY `fk_user_session` (`user`),
   CONSTRAINT `fk_user_session` FOREIGN KEY (`user`) REFERENCES `user` (`id`)
     ON DELETE CASCADE
 )
