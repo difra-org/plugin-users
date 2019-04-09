@@ -75,7 +75,7 @@ class AdmUsersListController extends Difra\Controller\Adm
         } else {
             Ajaxer::notify(Locales::get('auth/adm/userDataSaved'));
         }
-        Ajaxer::refresh();
+        Ajaxer::redirect('/adm/users/list');
     }
 
     /**
