@@ -178,6 +178,7 @@
             <moderator_flag>moderator</moderator_flag>
             <search>
                 <name>Login or email</name>
+                <submit>Search</submit>
             </search>
         </adm>
         <info>

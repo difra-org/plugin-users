@@ -186,12 +186,12 @@
             <userDataSavedPassChanged>Данные пользователя сохранены, пароль изменен.
             </userDataSavedPassChanged>
             <activate>Активировать</activate>
-            <mainParams>Основные параметры</mainParams>
             <addonFields>Дополнительные поля</addonFields>
             <fieldName>Дополнительное поле</fieldName>
             <fieldValue>Значение</fieldValue>
             <search>
                 <name>Логин или почта</name>
+                <submit>Найти</submit>
             </search>
         </adm>
         <info>

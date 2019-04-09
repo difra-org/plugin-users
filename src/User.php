@@ -441,6 +441,26 @@ class User
     }
 
     /**
+     * Get user by e-mail
+     * @param string $login
+     * @return User
+     * @throws Exception
+     * @throws UsersException
+     */
+    public static function getByMail($email)
+    {
+        $data = DB::getInstance(Users::getDB())->fetchRow(
+            'SELECT * FROM `user` WHERE `email`=:email',
+            ['email' => $email]
+        );
+        if (empty($data)) {
+            throw new UsersException(UsersException::LOGIN_NOTFOUND);
+        }
+        $user = self::load($data);
+        return $user;
+    }
+
+    /**
      * Get user by login name or e-mail
      * @param string $login
      * @return User
@@ -650,4 +670,19 @@ class User
     {
         return $this->activation;
     }
+
+    /**
+     * Check if e-mail isn't used
+     * @param $email
+     * @return bool
+     * @throws Exception
+     */
+    public static function isEmailAvailable($email)
+    {
+        return DB::getInstance(Users::getDB())->fetchOne(
+            'SELECT `id` FROM `user` WHERE `email`=?',
+            [$email]
+        ) ? false : true;
+    }
+
 }
