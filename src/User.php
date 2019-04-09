@@ -119,6 +119,7 @@ class User
      * @param \Difra\Unify\Paginator $paginator
      * @param bool $createNode
      * @param array $search
+     * @throws Exception
      */
     public static function getListXML($node, $paginator, $createNode = false, $search = null)
     {
@@ -157,6 +158,14 @@ class User
                         $whereArr[] = '(`banned`=:banned)';
                         $whereParams['banned'] = $v ? '1' : '0';
                         break;
+                    case 'custom':
+                        if (!is_array($v)) {
+                            $v = [$v];
+                        }
+                        foreach ($v as $customRule) {
+                            $whereArr[] = $customRule;
+                        }
+                        break;
                     default:
                         throw new \Difra\Exception('Unknown user search key: ' . $k);
                 }
@@ -182,12 +191,18 @@ class User
 
     /**
      * @param \DOMElement $node
-     * @param bool $createNode
+     * @param bool|string $addNode
      * @return \DOMElement
      */
-    public function getXML($node, $createNode = false)
+    public function getXML($node, $addNode = false)
     {
-        $subNode = $createNode ? $node->appendChild($node->ownerDocument->createElement('user')) : $node;
+        if ($addNode === false) {
+            $subNode = $node;
+        } elseif ($addNode === true) {
+            $subNode = $node->appendChild($node->ownerDocument->createElement('user'));
+        } else {
+            $subNode = $node->appendChild($node->ownerDocument->createElement($addNode));
+        }
         $subNode->setAttribute('id', $this->id);
         $subNode->setAttribute('email', $this->email);
         $subNode->setAttribute('login', $this->login);
@@ -273,7 +288,7 @@ class User
      */
     public function setPassword($password)
     {
-        $hash = sha1($password);
+        $hash = md5($password);
         if ($this->password == $hash) {
             return;
         }
@@ -390,6 +405,7 @@ class User
      * @param int $id
      * @return User
      * @throws UsersException
+     * @throws Exception
      */
     public static function getById($id)
     {
@@ -448,6 +464,7 @@ class User
      * Get current user
      * @return User
      * @throws UsersException
+     * @throws Exception
      */
     public static function getCurrent()
     {
