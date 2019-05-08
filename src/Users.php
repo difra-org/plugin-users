@@ -25,6 +25,10 @@ class Users
     const ACTIVATE_TTL = 7 * 24; // hours
     const IP_MASK = '255.255.0.0'; // "long session" ip mask
 
+    const ACTIVATE_EMAIL = 'email';
+    const ACTIVATE_NONE = 'none';
+    const ACTIVATE_MODERATE = 'moderate';
+
     /**
      * Get database name for users plugin
      * @return string
