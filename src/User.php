@@ -595,7 +595,7 @@ class User
     public function autoActivation()
     {
         switch ($method = Users::getActivationMethod()) {
-            case 'email':
+            case Users::ACTIVATE_EMAIL:
                 $mailer = Mailer::getInstance();
                 $mailer->setTo($this->email);
                 $mailer->setSubject(
@@ -613,13 +613,18 @@ class User
                 ]);
                 $mailer->send();
                 break;
+            case Users::ACTIVATE_NONE:
+                $this->activateManual();
+                break;
+            case Users::ACTIVATE_MODERATE:
+                break;
             default:
                 throw new Exception('Unknown activation method: ' . $method);
         }
     }
 
     /**
-     * Activate user (by administrator)
+     * Activate user
      */
     public function activateManual()
     {
