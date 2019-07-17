@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 use Difra\Events\Event;
 use Difra\Users;
 use Difra\Users\User;
@@ -20,6 +22,7 @@ class LogoutController extends \Difra\Controller
 
     /**
      * Log out (ajax)
+     * @throws \Difra\Exception
      */
     public function indexAjaxAction()
     {

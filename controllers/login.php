@@ -1,21 +1,19 @@
 <?php
 
+namespace Controller;
+
 use Difra\Ajaxer;
 use Difra\Locales;
 use Difra\Param;
 use Difra\Users\Register;
 use Difra\Users\User;
 use Difra\Users\UsersException;
-use Difra\Controller;
 
-/**
- * Class LoginController
- */
-class LoginController extends Controller
+class Login extends \Difra\Controller
 {
     /**
      * Login form
-     * @return void
+     * @throws \Difra\Exception
      */
     public function indexAjaxAction()
     {
@@ -28,9 +26,9 @@ class LoginController extends Controller
 
     /**
      * User login
-     * @param Difra\Param\AjaxString $login
-     * @param Difra\Param\AjaxString $password
-     * @param Difra\Param\AjaxCheckbox $rememberMe
+     * @param Param\AjaxString $login
+     * @param Param\AjaxString $password
+     * @param Param\AjaxCheckbox $rememberMe
      */
     public function authAjaxAction(Param\AjaxString $login, Param\AjaxString $password, Param\AjaxCheckbox $rememberMe)
     {
@@ -57,9 +55,9 @@ class LoginController extends Controller
 
     /**
      * User login (stub for logged in users)
-     * @param Difra\Param\AjaxString $login
-     * @param Difra\Param\AjaxString $password
-     * @param Difra\Param\AjaxCheckbox $rememberMe
+     * @param Param\AjaxString $login
+     * @param Param\AjaxString $password
+     * @param Param\AjaxCheckbox $rememberMe
      */
     public function authAjaxActionAuth(
         /** @noinspection PhpUnusedParameterInspection */
@@ -72,9 +70,12 @@ class LoginController extends Controller
 
     /**
      * Change password
-     * @param Difra\Param\AjaxString $oldpassword
-     * @param Difra\Param\AjaxString $password1
-     * @param Difra\Param\AjaxString $password2
+     * @param Param\AjaxCheckbox $submit
+     * @param Param\AjaxString $oldpassword
+     * @param Param\AjaxString $password1
+     * @param Param\AjaxString $password2
+     * @throws UsersException
+     * @throws \Difra\Exception
      */
     public function passwordAjaxActionAuth(
         Param\AjaxCheckbox $submit,

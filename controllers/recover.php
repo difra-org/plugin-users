@@ -1,21 +1,23 @@
 <?php
 
+namespace Controller;
+
 use Difra\Ajaxer;
 use Difra\Exception;
 use Difra\Libs\Cookies;
 use Difra\Locales;
 use Difra\Param\AjaxString;
 use Difra\Param\AnyString;
-use Difra\Users\Recover;
 use Difra\View;
 
 /**
  * Class RecoverController
  */
-class RecoverController extends \Difra\Controller
+class Recover extends \Difra\Controller
 {
     /**
      * Recover password (ajax)
+     * @param AjaxString|null $submit
      * @param AjaxString $login Login or e-mail
      * @param AjaxString $captcha
      * @throws Exception
@@ -45,7 +47,7 @@ class RecoverController extends \Difra\Controller
         }
         // recover
         try {
-            Recover::send($login->val());
+            \Difra\Users\Recover::send($login->val());
             \Difra\Events\Event::getInstance(\Difra\Users::EVENT_RECOVER_DONE_AJAX)->trigger();
         } catch (Exception $ex) {
 //            Ajaxer::status('email', Locales::get('auth/login/' . $ex->getMessage()), 'problem');
@@ -76,7 +78,7 @@ class RecoverController extends \Difra\Controller
     public function codeAction(AnyString $code)
     {
         try {
-            Recover::verify($code->val());
+            \Difra\Users\Recover::verify($code->val());
         } catch (Exception $ex) {
             Cookies::getInstance()->notify(Locales::get('auth/recover/' . $ex->getMessage()), true);
             View::redirect('/');
@@ -105,12 +107,11 @@ class RecoverController extends \Difra\Controller
      * @param AnyString $code
      * @param AjaxString $password1
      * @param AjaxString $password2
-     * @throws Exception
      */
     public function submitAjaxAction(AnyString $code, AjaxString $password1, AjaxString $password2)
     {
         try {
-            Recover::verify($code->val());
+            \Difra\Users\Recover::verify($code->val());
         } catch (\Difra\Users\UsersException $ex) {
             Ajaxer::notify(Locales::get('auth/recover/' . $ex->getMessage()));
             return;
@@ -123,7 +124,7 @@ class RecoverController extends \Difra\Controller
             $register->callAjaxerEvents();
             return;
         }
-        Recover::recoverSetPassword($code->val(), $password1->val());
+        \Difra\Users\Recover::recoverSetPassword($code->val(), $password1->val());
         Cookies::getInstance()->notify(Locales::get('auth/recover/done'));
         Ajaxer::redirect('/');
     }

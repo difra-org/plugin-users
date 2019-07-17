@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller\Adm\Users;
+
 use Difra\Ajaxer;
 use Difra\Locales;
 use Difra\Param;
@@ -9,7 +11,7 @@ use Difra\Users\UsersException;
 /**
  * Class AdmUsersListController
  */
-class AdmUsersListController extends Difra\Controller\Adm
+class Index extends \Difra\Controller\Adm
 {
     /** @var \DOMElement */
     private $node = null;
@@ -17,6 +19,7 @@ class AdmUsersListController extends Difra\Controller\Adm
     /**
      * Users list
      * @param Param\NamedPaginator $page
+     * @throws \Difra\Exception
      */
     public function indexAction(\Difra\Param\NamedPaginator $page)
     {
@@ -56,6 +59,8 @@ class AdmUsersListController extends Difra\Controller\Adm
      * @param Param\AjaxString|null $new_pw
      * @param Param\AjaxData|null $fieldName
      * @param Param\AjaxData|null $fieldValue
+     * @throws UsersException
+     * @throws \Difra\Exception
      */
     public function saveAjaxAction(
         Param\AnyInt $id,
@@ -82,6 +87,7 @@ class AdmUsersListController extends Difra\Controller\Adm
      * Ban user
      * @param Param\AnyInt $id
      * @throws UsersException
+     * @throws \Difra\Exception
      */
     public function banAjaxAction(Param\AnyInt $id)
     {
@@ -93,6 +99,7 @@ class AdmUsersListController extends Difra\Controller\Adm
      * Unban user
      * @param Param\AnyInt $id
      * @throws UsersException
+     * @throws \Difra\Exception
      */
     public function unbanAjaxAction(Param\AnyInt $id)
     {
@@ -103,6 +110,8 @@ class AdmUsersListController extends Difra\Controller\Adm
     /**
      * Manual user activation
      * @param Param\AnyInt $id
+     * @throws UsersException
+     * @throws \Difra\Exception
      */
     public function activateAjaxAction(Param\AnyInt $id)
     {

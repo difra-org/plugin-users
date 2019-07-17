@@ -1,5 +1,5 @@
 <menu>
 	<users>
-		<list/>
+		<list href="/adm/users"/>
 	</users>
 </menu>
