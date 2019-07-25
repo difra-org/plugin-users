@@ -9,7 +9,7 @@ use Difra\Users\User;
 /**
  * Class LogoutController
  */
-class LogoutController extends \Difra\Controller
+class Logout extends \Difra\Controller
 {
     /**
      * Log out
