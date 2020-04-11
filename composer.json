@@ -17,6 +17,12 @@
         "url": "https://github.com/difra-org/users/archive/1.0.3.zip",
         "type": "zip"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:difra-org/users.git"
+        }
+    ],
     "autoload": {
         "files": [
             "main.php"
