@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Difra\Users;
 
 use Difra\Ajaxer;
-use Difra\Capcha;
+use Difra\Captcha;
 use Difra\Config;
 use Difra\Exception;
 use Difra\Locales;
@@ -278,13 +278,13 @@ class Register
         if (!$this->ignoreEmpty) {
             if (!$this->captcha) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_EMPTY;
-            } elseif (!Capcha::getInstance()->verifyKey($this->captcha)) {
+            } elseif (!Captcha::getInstance()->verifyKey($this->captcha)) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_INVALID;
             } else {
                 return $this->successful['capcha'] = self::REGISTER_CAPTCHA_OK;
             }
         } elseif ($this->captcha !== '') {
-            if (!Capcha::getInstance()->verifyKey($this->captcha)) {
+            if (!Captcha::getInstance()->verifyKey($this->captcha)) {
                 return $this->failures['capcha'] = self::REGISTER_CAPTCHA_INVALID;
             }
         }

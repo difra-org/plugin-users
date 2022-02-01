@@ -38,7 +38,7 @@ class Recover extends \Difra\Controller
         if (is_null($captcha) or $captcha->val() === '') {
             Ajaxer::required('captcha');
             $error = true;
-        } elseif (!\Difra\Capcha::getInstance()->verifyKey($captcha->val())) {
+        } elseif (!\Difra\Captcha::getInstance()->verifyKey($captcha->val())) {
             Ajaxer::invalid('captcha');
             $error = true;
         }
