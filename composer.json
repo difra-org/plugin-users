@@ -1,27 +1,27 @@
 {
-    "name": "difra/users",
+    "name": "difra/plugin-users",
     "description": "Users plugin for Difra framework",
     "type": "library",
     "require": {
-        "difra/difra": "8.0.*",
-        "difra/capcha": "~1.0.0",
+        "difra/difra": "~8.0.0",
+        "difra/capcha": "~8.0.0",
         "difra/lib-wordforms": "~1.0.0"
     },
     "license": "BSD-2-Clause",
     "authors": [
         {
-            "name": "Eduard Kutuev",
-            "email": "nap@napych.com"
+            "name": "Ed Kutuev",
+            "email": "ed@napych.com"
         }
     ],
     "dist": {
-        "url": "https://github.com/difra-org/users/archive/1.0.3.zip",
+        "url": "https://github.com/difra-org/plugin-users/archive/refs/tags/8.0.0.zip",
         "type": "zip"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:difra-org/users.git"
+            "url": "git@github.com:difra-org/plugin-users.git"
         }
     ],
     "autoload": {
