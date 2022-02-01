@@ -42,31 +42,31 @@ class Register
     const LOGIN_REGEX = '/^[a-zA-Z0-9]([a-zA-Z0-9._-]*)$/';
     const MIN_PASSWORD_LENGTH = 6;
     /** @var array Failures list */
-    private $failures = [];
+    private array $failures = [];
     /** @var array Successful fields list */
-    private $successful = [];
-    /** @var string E-Mail */
-    private $email = null;
-    /** @var string Login name */
-    private $login = null;
-    /** @var string Password (1) */
-    private $password1 = null;
-    /** @var string Password (2) */
-    private $password2 = null;
-    /** @var string Captcha value */
-    private $captcha = null;
+    private array $successful = [];
+    /** @var string|null E-Mail */
+    private ?string $email = null;
+    /** @var string|null Login name */
+    private ?string $login = null;
+    /** @var string|null Password (1) */
+    private ?string $password1 = null;
+    /** @var string|null Password (2) */
+    private ?string $password2 = null;
+    /** @var string|null Captcha value */
+    private ?string $captcha = null;
     /** @var bool Ignore empty fields on validation */
-    private $ignoreEmpty = false;
+    private bool $ignoreEmpty = false;
     /** @var bool Fast validation */
-    private $fast = false;
+    private bool $fast = false;
     /** @var bool Valid flag */
-    private $valid = false;
+    private bool $valid = false;
 
     /**
      * @param bool $ignoreEmpty Report only invalid fields (skip empty or fine fields reporting)
      * @param bool|null $fast true = skip database queries, false = query database, null = depending on captcha
      */
-    public function __construct($ignoreEmpty = false, $fast = null)
+    public function __construct(bool $ignoreEmpty = false, bool $fast = null)
     {
         $this->ignoreEmpty = $ignoreEmpty;
         $this->fast = $fast;
@@ -74,11 +74,11 @@ class Register
 
     /**
      * Set e-mail
-     * @param $email
+     * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail(string $email): void
     {
-        $this->email = (string)$email;
+        $this->email = $email;
         $this->valid = false;
     }
 
@@ -86,8 +86,9 @@ class Register
      * Verify e-mail
      * @param bool|false $fast
      * @return null|string
+     * @throws \Difra\Exception
      */
-    private function verifyEmail($fast = false)
+    private function verifyEmail(bool $fast = false): ?string
     {
         // check e-mail
         if (!$this->ignoreEmpty) {
@@ -112,11 +113,11 @@ class Register
 
 
     /**
-     * Set user name
-     * @param $login
-     * @throws Exception
+     * Set username
+     * @param string|null $login
+     * @throws \Difra\Exception
      */
-    public function setLogin($login)
+    public function setLogin(?string $login)
     {
         if (!Users::isLoginNamesEnabled()) {
             if (!(string)$login) {
@@ -132,8 +133,9 @@ class Register
      * Verify user name
      * @param bool $fast Skip database checks
      * @return null|string
+     * @throws \Difra\Exception
      */
-    public function verifyLogin($fast = false)
+    public function verifyLogin(bool $fast = false)
     {
         if (!Users::isLoginNamesEnabled()) {
             return null;
@@ -169,35 +171,35 @@ class Register
 
     /**
      * Verify if user name string is valid
-     * @param $login
+     * @param string $login
      * @return bool
      */
-    public static function isLoginValid($login)
+    public static function isLoginValid(string $login): bool
     {
         return (bool)preg_match(self::LOGIN_REGEX, $login);
     }
 
     /**
      * Verify if login does not exist yet
-     * @param $login
+     * @param string $login
      * @return bool
-     * @throws \Difra\Exception
+     * @throws \Difra\DB\Exception
      */
-    public static function isLoginAvailable($login)
+    public static function isLoginAvailable(string $login): bool
     {
-        return DB::getInstance(Users::getDB())->fetchOne(
+        return !DB::getInstance(Users::getDB())->fetchOne(
             'SELECT `id` FROM `user` WHERE `login`=?',
             [$login]
-        ) ? false : true;
+        );
     }
 
     /**
      * Set password
      * @param string $password1
      */
-    public function setPassword1($password1)
+    public function setPassword1(string $password1)
     {
-        $this->password1 = (string)$password1;
+        $this->password1 = $password1;
         $this->valid = false;
     }
 
@@ -205,7 +207,7 @@ class Register
      * Validate password
      * @return string|null
      */
-    private function verifyPassword1()
+    private function verifyPassword1(): ?string
     {
         if (!$this->ignoreEmpty) {
             if ($this->password1 === '') {
@@ -227,17 +229,17 @@ class Register
      * Set password (repeat)
      * @param string $password2
      */
-    public function setPassword2($password2)
+    public function setPassword2(string $password2): void
     {
-        $this->password2 = (string)$password2;
+        $this->password2 = $password2;
         $this->valid = false;
     }
 
     /**
      * Validate password (repeat)
-     * @return string
+     * @return string|null
      */
-    private function verifyPassword2()
+    private function verifyPassword2(): ?string
     {
         if (!$this->ignoreEmpty) {
             if ($this->password2 === '') {
@@ -259,9 +261,9 @@ class Register
      * Set captcha
      * @param string $captcha
      */
-    public function setCaptcha($captcha)
+    public function setCaptcha(string $captcha): void
     {
-        $this->captcha = (string)$captcha;
+        $this->captcha = $captcha;
         $this->valid = false;
     }
 
@@ -269,7 +271,7 @@ class Register
      * Validate captcha
      * @return string
      */
-    private function verifyCaptcha()
+    private function verifyCaptcha(): ?string
     {
         if (!$this->ignoreEmpty) {
             if (!$this->captcha) {
@@ -290,8 +292,9 @@ class Register
     /**
      * Validate registration form fields
      * @return bool
+     * @throws \Difra\Exception
      */
-    public function validate()
+    public function validate(): bool
     {
         $this->successful = [];
         $this->failures = [];
@@ -312,7 +315,7 @@ class Register
      * Passwords validation
      * @return bool
      */
-    public function validatePasswords()
+    public function validatePasswords(): bool
     {
         $this->verifyPassword1();
         $this->verifyPassword2();
@@ -322,8 +325,9 @@ class Register
     /**
      * Add ajaxer events to highlight wrong or correct fields
      * @return bool
+     * @throws \Difra\Exception
      */
-    public function callAjaxerEvents()
+    public function callAjaxerEvents(): bool
     {
         if (!empty($this->successful)) {
             foreach ($this->successful as $field => $result) {
@@ -408,7 +412,7 @@ class Register
      * @return bool
      * @throws Exception
      */
-    public static function activate($key)
+    public static function activate($key): bool
     {
         $key = trim((string)$key);
         if (!$key) {

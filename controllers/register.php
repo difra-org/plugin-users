@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Difra\Ajaxer;
 use Difra\Libs\Cookies;
 use Difra\Locales;
@@ -10,6 +12,7 @@ use Difra\Users;
 use Difra\Users\Register;
 use Difra\Users\UsersException;
 use Difra\View;
+use Difra\View\HttpError;
 
 /**
  * Class RegisterController
@@ -19,11 +22,11 @@ class RegisterController extends \Difra\Controller
     /**
      * Dispatcher
      */
-    public function dispatch()
+    public function dispatch(): void
     {
         $enabled = Difra\Config::getInstance()->getValue('auth', 'registration');
         if ($enabled === false) {
-            throw new Difra\View\HttpError(404);
+            throw new HttpError(404);
         }
     }
 
@@ -116,6 +119,7 @@ class RegisterController extends \Difra\Controller
      * Activation link
      * @param AnyString $code
      * TODO: move to event
+     * @throws \Difra\Exception
      */
     public function activateAction(AnyString $code)
     {

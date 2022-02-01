@@ -4,7 +4,6 @@ namespace Difra\Users;
 
 use Difra\Ajaxer;
 use Difra\Events\Event;
-use Difra\Libs\Cookies;
 use Difra\Locales;
 use Difra\Users;
 use Difra\View;
