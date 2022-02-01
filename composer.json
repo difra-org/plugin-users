@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "difra/difra": "~8.0.0",
-        "difra/capcha": "~8.0.0",
+        "difra/plugin-capcha": "~8.0.0",
         "difra/lib-wordforms": "~8.0.0"
     },
     "license": "BSD-2-Clause",
