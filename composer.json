@@ -5,6 +5,7 @@
     "require": {
         "difra/difra": "8.0.*",
         "difra/capcha": "~1.0.0"
+	"difra/wordforms": "~1.0.0"
     },
     "license": "BSD-2-Clause",
     "authors": [

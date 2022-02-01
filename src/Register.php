@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Difra\Users;
 
 use Difra\Ajaxer;
@@ -8,7 +10,7 @@ use Difra\Config;
 use Difra\Exception;
 use Difra\Locales;
 use Difra\DB;
-use Difra\Locales\Wordforms;
+use Difra\Wordforms;
 use Difra\Users;
 use Difra\Security\Filter\Email;
 
