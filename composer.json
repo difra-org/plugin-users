@@ -5,6 +5,7 @@
     "require": {
         "difra/difra": "~8.0.0",
         "difra/plugin-captcha": "~8.0.0",
+        "difra/lib-mailer": "~8.0.0",
         "difra/lib-wordforms": "~8.0.0"
     },
     "license": "BSD-2-Clause",
